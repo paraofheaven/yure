@@ -13,7 +13,7 @@ export default class Help {
     help += `${chalk.cyan(this.root.bin)} ${chalk.dim(this.root.pkg.version)}\n\n`;
 
     if (this.root.pkg.description) {
-      help += `${chalk.dim.italic(this.root.pkg.description)}`
+      help += `${chalk.dim.italic(this.root.pkg.description)}\n\n`
     }
 
     const commandText = chalk.magenta(this.opt.displayCommands ? '<command>' : `${this.command.command.name}`);

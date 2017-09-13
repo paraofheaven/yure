@@ -11,6 +11,7 @@ cli.command('*', {
   }
 }).option('age', {
   type: 'string',
+  alias: 'a',
   desc: 'tell me your age'
 });
 

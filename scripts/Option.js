@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { parseType, orderByNamelength, textTable } from './utils'
+import { parseType, orderByNamelength, textTable, prefixOption } from './utils'
 
 export default class Option {
   constructor() {
@@ -18,7 +18,7 @@ export default class Option {
       default: opt.default,
       type: parseType(opt.type)
     };
-    option.names = orderByNamelength([opt.name].concat(opt.alias));
+    option.names = orderByNamelength([option.name].concat(option.alias));
     this.options.push(option);
     return this;
   }
@@ -31,7 +31,7 @@ export default class Option {
     return this.getOptionByType(type).map(option => option.name)
   }
 
-  getDefaultsMap() {
+  getDefaultsMapping() {
     return this.options.filter((option) => {
       return typeof option.default !== 'undefined'
     }).reduce((res, next) => {
@@ -62,7 +62,7 @@ export default class Option {
           extra.push(`Type: ${option.type}`)
         }
         return [
-          option.names.map(v => chalk.yellow(prefixOption(v)).join(', ')),
+          option.names.map(v => chalk.yellow(prefixOption(v))).join(', '),
           chalk.dim(option.desc),
           extra.map((v) => `[${v}]`).join(' ')
         ]

@@ -13,7 +13,7 @@ import { isExplictCommand, textTable } from './utils'
 delete require.cache[__filename];
 const parentDir = path.dirname(module.parent.filename);
 
-export default class yure extends EventEmitter {
+export default class Yure extends EventEmitter {
   constructor({ bin, pkg } = {}) {
     super();
     this.bin = bin || path.basename(process.argv[1]);
@@ -42,14 +42,14 @@ export default class yure extends EventEmitter {
   }
 
   command(...args) {
-    const command = new command();
+    const command = new Command(...args);
     this.commands.push(command);
-    return this;
+    return command;
   }
 
   findCommandByNameOrAlias(name) {
     return this.commands.filter(({ command }) => {
-      return command.names.indexof(name) > -1
+      return command.names.indexOf(name) > -1
     })[0]
   }
 
@@ -113,7 +113,7 @@ export default class yure extends EventEmitter {
     const { command, sliceFirstArg } = this.getCommand(this.firstArg);
     this.matchedCommand = command;
 
-    const { input, flags } = minimost(argv, {
+    let { input, flags } = minimost(argv, {
       boolean: [
         ...this.options.getOptionNamesByType('boolean'),
         ...(command ? command.options.getOptionNamesByType('boolean') : [])
@@ -123,8 +123,8 @@ export default class yure extends EventEmitter {
         ...(command ? command.options.getOptionNamesByType('string') : [])
       ],
       default: {
-        ...this.options.getDefaultsMap(),
-        ...(command ? command.options.getDefaultsMap() : {})
+        ...this.options.getDefaultsMapping(),
+        ...(command ? command.options.getDefaultsMapping() : {})
       },
       alias: {
         ...this.options.getAliasMap(),
@@ -157,7 +157,7 @@ export default class yure extends EventEmitter {
   }
 
   handleError(err) {
-    if (EventEmitter.listenCount(this, 'error') === 0) {
+    if (EventEmitter.listenerCount(this, 'error') === 0) {
       console.error(err);
       process.exitCode = process.exitCode || 1;
     } else {

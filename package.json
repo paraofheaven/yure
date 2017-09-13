@@ -2,9 +2,12 @@
   "name": "yure",
   "version": "1.0.0",
   "description": "Command-line yure helper",
-  "author": "para",
+  "author": "para <paraofheaven@foxmail.com>",
   "license": "MIT",
   "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
   "keywords": [
     "cli",
     "framework",
@@ -15,6 +18,7 @@
     "yure"
   ],
   "dependencies": {
+    "ava": "^0.21.0",
     "chalk": "^2.0.1",
     "read-pkg-up": "^2.0.0",
     "minimost": "^1.0.0",
@@ -28,6 +32,12 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
   },
   "babel": {
     "presets": [

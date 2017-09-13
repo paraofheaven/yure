@@ -3,21 +3,21 @@ import { confirmParam, orderByNamelength } from './utils'
 
 export default class Command {
   constructor(name, opt, handler) {
-    option = option || {};
+    opt = opt || {};
     if (typeof opt === 'string' || opt instanceof String) {
-      option = { desc: opt };
+      opt = { desc: opt };
     }
     confirmParam(typeof name === 'string', 'Expect command name to be string');
-    confirmParam(option.desc || opt.desc, 'Expect command to have a description');
+    confirmParam(opt.desc, 'Expect command to have a description');
 
     const command = {
       ...opt,
       name,
-      alias: opt.alias || {},
+      alias: opt.alias || [],
       desc: opt.desc
     };
 
-    command.names = orderByNamelength([opt.name].concat(opt.alias));
+    command.names = orderByNamelength([command.name].concat(command.alias));
     this.command = command;
     this.options = new Option();
     this.handler = handler;

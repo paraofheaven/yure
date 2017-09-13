@@ -1,6 +1,6 @@
 import table from 'text-table'
 import stringWidth from 'string-width'
-import YureError from './'
+import YureError from './YureError'
 
 export function parseType(type) {
   if (typeof type === 'string' || type instanceof String) {
@@ -24,7 +24,7 @@ export function confirmParam(exp, message) {
 }
 
 export function isExplictCommand(name) {
-  return name && !name.startWith('-');
+  return name && !name.startsWith('-');
 }
 
 export function textTable(data) {
