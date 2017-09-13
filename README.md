@@ -24,4 +24,4 @@ yarn add yure
 **cac** © [paraofheaven](https://github.com/paraofheaven), Released under the [MIT](./LICENSE) License.<br>
 Authored and maintained by paraofheaven with help from contributors ([list](https://github.com/paraofheaven/yure/contributors)).
 
-> [egoist.moe](https://paraofheaven.github.io) · GitHub [@egoist](https://github.com/paraofheaven) 
+> [blog](https://paraofheaven.github.io) · GitHub [@paraofheaven](https://github.com/paraofheaven) 
