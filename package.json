@@ -1,0 +1,47 @@
+{
+  "name": "yure",
+  "version": "1.0.0",
+  "description": "Command-line yure helper",
+  "author": "para",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "cli",
+    "framework",
+    "argv",
+    "app",
+    "script",
+    "helper",
+    "yure"
+  ],
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "read-pkg-up": "^2.0.0",
+    "minimost": "^1.0.0",
+    "redent": "^2.0.0",
+    "string-width": "^2.1.1",
+    "text-table": "^0.2.0",
+    "camelcase-keys": "^4.0.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  }
+}
