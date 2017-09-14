@@ -21,7 +21,7 @@ yarn add yure
 
 ## Author
 
-**cac** © [paraofheaven](https://github.com/paraofheaven), Released under the [MIT](./LICENSE) License.<br>
+**yure** © [paraofheaven](https://github.com/paraofheaven), Released under the [MIT](./LICENSE) License.<br>
 Authored and maintained by paraofheaven with help from contributors ([list](https://github.com/paraofheaven/yure/contributors)).
 
 > [blog](https://paraofheaven.github.io) · GitHub [@paraofheaven](https://github.com/paraofheaven) 
