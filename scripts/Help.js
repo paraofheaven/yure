@@ -36,7 +36,12 @@ export default class Help {
     if (!this.root.options.isEmpty()) {
       help += `${chalk.bold('GLOBAL OPTIONS')}\n\n`;
       help += redent(this.root.options.toString(), 2);
-      help += '\n';
+      help += '\n\n';
+    }
+
+    if (this.opt.epilog) {
+      help += this.root.epilog;
+      help += '\n\n';
     }
 
     console.log(help);

@@ -36,3 +36,13 @@ export function textTable(data) {
 export function prefixOption(name) {
   return name.length === 1 ? `-${name}` : `--${name}`;
 }
+
+export function explictEpiLog(log) {
+  if (typeof log === 'string' || log instanceof String) {
+    return log;
+  } else if (log.toString) {
+    return log.toString();
+  } else {
+    throw new YureError('epiLog should be a string or has toString method');
+  }
+}

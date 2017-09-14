@@ -6,7 +6,7 @@ import minimost from './minimost'
 import Option from './Option'
 import Command from './Command'
 import Help from './Help'
-import { isExplictCommand, textTable } from './utils'
+import { isExplictCommand, textTable, explictEpiLog } from './utils'
 
 // prevent caching of this module so module.parent is always accurate
 
@@ -95,7 +95,8 @@ export default class Yure extends EventEmitter {
     }
 
     const displayCommands = !isExplictCommand(this.firstArg);
-    const help = new Help(this, this.matchedCommand, { displayCommands });
+    const epilog = explictEpiLog(this.epilog);
+    const help = new Help(this, this.matchedCommand, { displayCommands, epilog });
     help.output();
     return this;
   }
@@ -103,6 +104,10 @@ export default class Yure extends EventEmitter {
   showVersion() {
     console.log(chalk.dim(this.pkg.version));
     return this;
+  }
+
+  epilog(string) {
+    this.epilog = string;
   }
 
   parse(argv, { run = true } = {}) {
@@ -157,7 +162,7 @@ export default class Yure extends EventEmitter {
   }
 
   handleError(err) {
-    if (EventEmitter.listenerCount(this, 'error') === 0) {
+    if (EventEmitter.listenerCount('error') === 0) {
       console.error(err);
       process.exitCode = process.exitCode || 1;
     } else {

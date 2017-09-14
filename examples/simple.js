@@ -1,7 +1,10 @@
 require('babel-register');
 
 const yure = require('../scripts').default;
+const chalk = require('chalk');
 const cli = yure();
+
+cli.epilog(`${chalk.cyan.bold('Copyright')} 2017 author @tianyingchun`);
 
 cli.command('*', {
   desc: 'the default command to start dev server'
