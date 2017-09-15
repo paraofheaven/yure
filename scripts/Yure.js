@@ -138,8 +138,8 @@ export default class Yure extends EventEmitter {
     });
 
     input = sliceFirstArg ? input.slice(1) : input;
+    
     // emit parsed hook
-
     this.emit('parsed', command, input, flags);
 
     if (!run) {
