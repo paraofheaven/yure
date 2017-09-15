@@ -106,8 +106,8 @@ export default class Yure extends EventEmitter {
     return this;
   }
 
-  epilog(string) {
-    this.epilog = string;
+  epilog(str) {
+    this.epilog = str;
   }
 
   parse(argv, { run = true } = {}) {
