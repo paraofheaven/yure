@@ -10,7 +10,7 @@ cli.command('*', {
 })
 
 cli.command('p', {
-  desc: 'p command'
+  desc: 'for p command'
 }, (input, flags) => {
   Promise.reject(new Error('Promise reject'))
 })
