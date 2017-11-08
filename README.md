@@ -3,7 +3,7 @@ Command-line yure helper
 
 ## Introduction
 
-**Y** **U** **R** **E**, a good helper living in your command line, is a minimalistic but pluggable CLI framework.
+**Y** **U** **R** **E**, a great helper writing for your command line, is a minimalistic but pluggable CLI framework.
 
 ## Install
 
